@@ -28,7 +28,9 @@ public class Orden implements IEstado{
     public Orden() {
     }
 
-    public Orden(int id, ArrayDeque<TacosOrden> tacos, boolean cilantro, boolean cebolla, int salsa, boolean pica, String extras, int cantidad, boolean paLlevar) {
+    public Orden(int id, ArrayDeque<TacosOrden> tacos, boolean cilantro, 
+            boolean cebolla, int salsa, boolean pica, String extras, int cantidad, 
+            double precio, boolean paLlevar) {
         this.id = id;
         this.tacos = tacos;
         this.cilantro = cilantro;
@@ -37,7 +39,7 @@ public class Orden implements IEstado{
         this.pica = pica;
         this.extras = extras;
         this.cantidad = cantidad;
-        //this.precio = precio;
+        this.precio = precio;
         this.paLlevar = paLlevar;
         
     }
@@ -55,6 +57,13 @@ public class Orden implements IEstado{
     /**
      * @return the cilantro
      */
+    public String getCilantro() {
+        if(cilantro)
+            return "Si";
+        else
+            return "No";
+    }
+    
     public boolean isCilantro() {
         return cilantro;
     }
@@ -69,10 +78,17 @@ public class Orden implements IEstado{
     /**
      * @return the cebolla
      */
+    public String getCebolla() {
+        if(cebolla)
+            return "Si";
+        else
+            return "No";
+    }
+
     public boolean isCebolla() {
         return cebolla;
     }
-
+    
     /**
      * @param cebolla the cebolla to set
      */
@@ -83,7 +99,20 @@ public class Orden implements IEstado{
     /**
      * @return the salsa
      */
-    public int getSalsa() {
+    public String getSalsa() {
+        switch (salsa) {
+            case 1:
+                return "Verde";
+            case 2:
+                return "Roja";
+            case 3:
+                return "Ambas";
+            default:
+                return "Otras";
+        }
+    }
+    
+    public int valueSalsa() {
         return salsa;
     }
 
@@ -97,10 +126,17 @@ public class Orden implements IEstado{
     /**
      * @return the pica
      */
+    public String getPica() {
+        if(pica)
+            return "Si";
+        else
+            return "No";
+    }
+
     public boolean isPica() {
         return pica;
     }
-
+    
     /**
      * @param pica the pica to set
      */
@@ -139,10 +175,17 @@ public class Orden implements IEstado{
     /**
      * @return the paLlevar
      */
+    public String getPaLlevar() {
+        if(paLlevar)
+            return "Si";
+        else
+            return "No";
+    }
+
     public boolean isPaLlevar() {
         return paLlevar;
     }
-
+    
     /**
      * @param paLlevar the paLlevar to set
      */

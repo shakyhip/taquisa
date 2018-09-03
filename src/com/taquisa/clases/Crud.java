@@ -28,27 +28,31 @@ public class Crud {
     }
     
     public void AgregarOrden(Orden orden){
-      ordenes.add(orden);
+        ordenes.add(orden);
     }
     
     
-    public Orden MostrarOrden(){
+    public Orden MostrarOrdenActual(){
         return ordenes.peek();
     }
+
     
-    public void Buscar(int id){
+    public ArrayDeque<Orden> MostrarOrdenes(){
+        return ordenes;
     }
+   
     
-    public boolean Verificar(int id){
-      
-        return false;    
-    }
-    
-    public void Modificar(int id){
-        
-    }
-    
-    public void Eliminar(int id){
-        
+    public void Modificar(ArrayDeque<TacosOrden> tacos, boolean cilantro, 
+            boolean cebolla, int salsa, boolean pica, String extras, int cantidad, 
+            double precio, boolean paLlevar){
+        ordenes.peek().setTacos(tacos);
+        ordenes.peek().setCilantro(cilantro);
+        ordenes.peek().setCebolla(cebolla);
+        ordenes.peek().setSalsa(salsa);
+        ordenes.peek().setPica(pica);
+        ordenes.peek().setExtras(extras);
+        ordenes.peek().setCantidad(cantidad);
+        ordenes.peek().setPrecio(precio);
+        ordenes.peek().setPaLlevar(paLlevar);
     }
 }
